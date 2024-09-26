@@ -5,19 +5,19 @@ public class Prodotto {
 	int code;
 	String name;
 	String description;
-	double priece;
+	double price;
 	double iva ;
 	
-	void getPrezzoConIva () {
-		double prezzoIntero = Math.floor(((priece * iva) / 100) + priece);
-		System.out.println(prezzoIntero + "$");
-		//return iva;
+	double getPrezzoConIva () {
+		double prezzoIntero = Math.round((((price * iva) / 100) + price)*100)/100;
+		//System.out.println(prezzoIntero + "$");
+		return prezzoIntero;
 	}
-	void getCode() {
+	int getCode() {
 		Random randomCode = new Random();
 		 code = randomCode.nextInt();
-		// return code;
-		 System.out.println("il codice generato è " + code);
+		 return code;
+		// System.out.println("il codice generato è " + code);
 	}
 	void codiceEstesto() {
 		/*Random randomCode = new Random();
@@ -27,9 +27,14 @@ public class Prodotto {
 		System.out.println(nome);
 	}
 	void getPrezzoBase() {
-		System.out.println(priece + "$");
+		System.out.println(price + "$");
 	}
-	
+	String getInfoProdotto() {
+		String Info = "nome del prodtto "+ name + " descrizione del prodotto "
+				+ description + " prezzo del prodotto " + price
+				+ " Iva del prodotto " + iva;
+		return Info;
+	}
 	
 }
 
